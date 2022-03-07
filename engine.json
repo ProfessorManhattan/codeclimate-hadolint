@@ -1,0 +1,14 @@
+{
+    "name": "hadolint",
+    "description": "Code Climate engine for Hadolint, linting for Docker files",
+    "maintainer": {
+      "name": "Brian Zalewski",
+      "email": "brian@megabyte.space"
+    },
+    "languages": [
+      "Shell"
+    ],
+    "version": "2.8.0-0",
+    "spec_version": "0.0.1"
+  }
+  
