@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+hadolint -f codeclimate -c /config.json - < /code/Dockerfile | sed  's/"path":"-"/"path":"Dockerfile"/g'

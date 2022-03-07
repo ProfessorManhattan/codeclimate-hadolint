@@ -1,0 +1,10 @@
+/bin/mkdir
+/lib/x86_64-linux-gnu/libm-2.24.so
+/lib/x86_64-linux-gnu/libm.so.6
+/lib/x86_64-linux-gnu/libpcre.so.3
+/lib/x86_64-linux-gnu/libpcre.so.3.13.3
+/lib/x86_64-linux-gnu/libpthread-2.24.so
+/lib/x86_64-linux-gnu/libpthread.so.0
+/lib/x86_64-linux-gnu/libselinux.so.1
+/usr/bin/find
+/usr/bin/xargs
