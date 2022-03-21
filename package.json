@@ -1,18 +1,18 @@
 {
   "private": false,
-  "name": "@megabytelabs/codeclimate-ansible-lint",
+  "name": "@megabytelabs/codeclimate-hadolint",
   "version": "5.4.0",
-  "description": "An Ansible Lint slim container and a CodeClimate engine container for GitLab CI",
+  "description": "A slim Hadolint standalone linter and a CodeClimate engine for GitLab CI",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "homepage": "https://megabyte.space",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/codeclimate-ansible-lint.git"
+    "url": "git+https://github.com/ProfessorManhattan/codeclimate-hadolint.git"
   },
   "bugs": {
     "email": "help@megabyte.space",
-    "url": "https://gitlab.com/megabyte-labs/docker/codeclimate/ansible-lint/-/issues"
+    "url": "https://gitlab.com/megabyte-labs/docker/codeclimate/hadolint/-/issues"
   },
   "type": "commonjs",
   "main": "dist/main.js",
@@ -83,8 +83,8 @@
     "description": "A slim Hadolint standalone linter and a CodeClimate engine for GitLab CI",
     "dockerBaseTag": "hadolint",
     "dockerSlimCommand": {
-      "hadolint": "--http-probe=false --exec 'hadolint Dockerfile || true' --mount \"$PWD/test/output-example:/work\" --workdir '/work' --preserve-path-file 'local/paths.txt'",
-      "codeclimate": "--http-probe=false --exec 'codeclimate-hadolint' --mount \"$PWD/test/output-example:/app\" --workdir '/app' --preserve-path-file 'local/paths.txt'"
+      "codeclimate": "--http-probe=false --exec 'codeclimate-hadolint' --mount \"$PWD/test/output-example:/app\" --workdir '/app' --preserve-path-file 'local/paths.txt'",
+      "hadolint": "--http-probe=false --exec 'hadolint Dockerfile || true' --mount \"$PWD/test/output-example:/work\" --workdir '/work' --preserve-path-file 'local/paths.txt'"
     },
     "group": "docker",
     "name": "Hadolint",
