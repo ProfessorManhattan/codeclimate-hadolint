@@ -1,0 +1,4 @@
+---
+engines:
+  hadolint:
+    enabled: true
