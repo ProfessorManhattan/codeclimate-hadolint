@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@megabytelabs/codeclimate-hadolint",
-  "version": "5.4.0",
+  "version": "2.9.2",
   "description": "A slim Hadolint standalone linter and a CodeClimate engine for GitLab CI",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -83,8 +83,8 @@
     "description": "A slim Hadolint standalone linter and a CodeClimate engine for GitLab CI",
     "dockerBaseTag": "hadolint",
     "dockerSlimCommand": {
-      "codeclimate": "--http-probe=false --exec 'codeclimate-hadolint' --mount \"$PWD/test/output-example:/app\" --workdir '/app' --preserve-path-file 'local/paths.txt'",
-      "hadolint": "--http-probe=false --exec 'hadolint Dockerfile || true' --mount \"$PWD/test/output-example:/work\" --workdir '/work' --preserve-path-file 'local/paths.txt'"
+      "codeclimate": "--http-probe=false --exec 'cp /work/Dockerfile /code/Dockerfile && echo '{}' > /config.json && codeclimate-hadolint' --mount \"$PWD/test/output-example:/work\" --workdir '/work' --preserve-path-file 'local/paths.txt'",
+      "hadolint": "--http-probe=false --exec 'hadolint /work/Dockerfile || true' --mount \"$PWD/test/output-example:/work\" --workdir '/work' --preserve-path-file 'local/paths.txt'"
     },
     "group": "docker",
     "name": "Hadolint",
@@ -96,7 +96,18 @@
     "slug": "hadolint",
     "subgroup": "codeclimate",
     "title": "Hadolint CodeClimate Engine",
-    "versionCommand": "docker run -it megabytelabs/hadolint:latest --version | sed 's/.* v//' | sed 's/-.*//'"
+    "versionCommand": "docker run -it megabytelabs/hadolint:latest --version | sed 's/.* v//' | sed 's/-.*//'",
+    "github_id": "R_kgDOHCig9w",
+    "gitlab_project_id": "32219763",
+    "gitlab_group_id": "14556970",
+    "dockerSlimSize": {
+      "codeclimate": "7.6M",
+      "hadolint": "7.6M"
+    },
+    "dockerLatestSize": {
+      "codeclimate": "9.4M",
+      "hadolint": "9.4M"
+    }
   },
   "changelog": {
     "displayTypes": [
@@ -109,9 +120,7 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
+    "extends": [],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "engine": "node >= 0.12.4",

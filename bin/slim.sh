@@ -1,1 +1,0 @@
-docker-slim build --tag codeclimate/codeclimate-hadolint:slim --http-probe=false --exec 'hadolint Dockerfile || sh --help' --mount "$PWD/tests/example:/work" --workdir '/work' --preserve-path-file 'paths.txt' codeclimate/codeclimate-hadolint:latest && prettier --write slim.report.json

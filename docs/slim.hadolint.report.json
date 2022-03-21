@@ -1,0 +1,187 @@
+{
+  "version": "1.0",
+  "engine": "linux|Transformer|1.37.2|ca48b5b3f8da2a791591618103edeb539242d4ac|2021-11-08_04:29:53PM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Fedora Linux",
+    "version": "35",
+    "display_name": "Fedora Linux 35 (Workstation Edition)"
+  },
+  "type": "build",
+  "state": "done",
+  "target_reference": "megabytelabs/hadolint:latest",
+  "system": {
+    "type": "Linux",
+    "release": "5.15.11-200.fc35.x86_64",
+    "distro": {
+      "name": "Alpine Linux",
+      "version": "3.15.1",
+      "display_name": "Alpine Linux v3.15"
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": "sha256:c0036b032db26aec408e19710bd2292520f48987bbf3923a375a8819547ef569",
+      "tags": ["latest"],
+      "names": ["megabytelabs/hadolint:latest"]
+    },
+    "size": 35773643,
+    "size_human": "36 MB",
+    "create_time": "2022-03-21T16:52:49Z",
+    "docker_version": "20.10.12",
+    "architecture": "amd64",
+    "user": "root",
+    "os": "linux",
+    "labels": {
+      "space.megabyte.type": "linter"
+    },
+    "env_vars": ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 31635053,
+  "minified_image_size_human": "32 MB",
+  "minified_image": "megabytelabs/hadolint:slim",
+  "minified_image_has_data": true,
+  "minified_by": 1.1308229197529716,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/c0036b032db26aec408e19710bd2292520f48987bbf3923a375a8819547ef569/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "megabytelabs-hadolint-seccomp.json",
+  "apparmor_profile_name": "megabytelabs-hadolint-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": false,
+      "id": "sha256:d77f47eb7254b0d15d43a3fa8f61676b246d78c37ee263d1a625d1331078a962",
+      "full_name": "hadolint/hadolint:latest-alpine",
+      "repo_name": "hadolint/hadolint",
+      "version_tag": "latest-alpine",
+      "raw_tags": ["hadolint/hadolint:latest-alpine"],
+      "create_time": "2022-03-20T12:11:48Z",
+      "new_size": 35773643,
+      "new_size_human": "36 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2022-03-17T04:01:58Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 5570147,
+          "size_human": "5.6 MB",
+          "params": "file:cf4b631a115c2bbfbd81cad2d3041bceb64a8136aac92ba8a63b6c51d60af764 in /",
+          "command_snippet": "ADD file:cf4b631a115c2bbfbd81cad2d3041bceb64...",
+          "command_all": "ADD file:cf4b631a115c2bbfbd81cad2d3041bceb64a8136aac92ba8a63b6c51d60af764 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-03-17T04:01:59Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/bin/sh\"]",
+          "command_snippet": "CMD [\"/bin/sh\"]",
+          "command_all": "CMD [\"/bin/sh\"]"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-03-20T12:11:48Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 30203496,
+          "size_human": "30 MB",
+          "command_snippet": "RUN [\"COPY\",\"/root/.local/bin/hadolint\",\"/bi...",
+          "command_all": "RUN [\"COPY\",\"/root/.local/bin/hadolint\",\"/bin/\"]",
+          "system_commands": ["[\"COPY\",\"/root/.local/bin/hadolint\",\"/bin/\"]"],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-03-20T12:11:48Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"CMD\",\"[/bin/hadolint\",\"-]\"]",
+          "command_all": "RUN [\"CMD\",\"[/bin/hadolint\",\"-]\"]",
+          "system_commands": ["[\"CMD\",\"[/bin/hadolint\",\"-]\"]"],
+          "comment": "buildkit.dockerfile.v0",
+          "raw_tags": ["hadolint/hadolint:latest-alpine"]
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:c0036b032db26aec408e19710bd2292520f48987bbf3923a375a8819547ef569",
+      "full_name": "megabytelabs/hadolint:latest",
+      "repo_name": "megabytelabs/hadolint",
+      "version_tag": "latest",
+      "raw_tags": ["megabytelabs/hadolint:latest"],
+      "create_time": "2022-03-21T16:52:49Z",
+      "new_size": 0,
+      "new_size_human": "0 B",
+      "base_image_id": "sha256:d77f47eb7254b0d15d43a3fa8f61676b246d78c37ee263d1a625d1331078a962",
+      "instructions": [
+        {
+          "type": "USER",
+          "time": "2022-03-21T16:52:46Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:4e4923d92fd2238453fb7b61b7b4babc6433457d1f63e2cdaa5395c7d5f98b17",
+          "layer_index": 0,
+          "size": 0,
+          "params": "root",
+          "command_snippet": "USER root",
+          "command_all": "USER root"
+        },
+        {
+          "type": "ENTRYPOINT",
+          "time": "2022-03-21T16:52:47Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:3141c1229382c24eee030e66f386055e21475141ede938fcf4c00fdbee25b2c2",
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"hadolint\"]",
+          "command_snippet": "ENTRYPOINT [\"hadolint\"]",
+          "command_all": "ENTRYPOINT [\"hadolint\"]"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-03-21T16:52:48Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:62caebc7804c8863cf3776c89ee33d2ccf4e35010f111cf6a2de0c301a8ff323",
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"--version\"]",
+          "command_snippet": "CMD [\"--version\"]",
+          "command_all": "CMD [\"--version\"]"
+        },
+        {
+          "type": "LABEL",
+          "time": "2022-03-21T16:52:49Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "space.megabyte.type=linter",
+          "command_snippet": "LABEL space.megabyte.type=linter",
+          "command_all": "LABEL space.megabyte.type=linter",
+          "raw_tags": ["megabytelabs/hadolint:latest"]
+        }
+      ]
+    }
+  ]
+}

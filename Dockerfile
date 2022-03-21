@@ -1,17 +1,17 @@
-FROM hadolint/hadolint:alpine AS codeclimate
+FROM hadolint/hadolint:latest-alpine AS codeclimate
 
 WORKDIR /work
 
-COPY engine.json ./
+COPY local/engine.json ./
 COPY local/codeclimate-hadolint /usr/local/bin/codeclimate-hadolint
 
-RUN adduser --uid 9000 app \
-    && apk --no-cache add --virtual build-deps \
-    jq \
-    && VERSION="$(hadolint --version)" \
-    && jq --arg version "$VERSION" '.version = $version' > /engine.json < ./engine.json \
-    && rm ./engine.json \
-    && apk del build-deps
+RUN adduser --uid 9000 --gecos "" --disabled-password app \
+  && apk --no-cache add --virtual build-deps \
+  jq \
+  && VERSION="$(hadolint --version)" \
+  && jq --arg version "$VERSION" '.version = $version' > /engine.json < ./engine.json \
+  && rm ./engine.json \
+  && apk del build-deps
 
 USER app
 
@@ -37,13 +37,9 @@ LABEL org.opencontainers.image.vendor="Megabyte Labs"
 LABEL org.opencontainers.image.version=$VERSION
 LABEL space.megabyte.type="codeclimate"
 
-FROM codeclimate AS hadolint
-
-WORKDIR /work
+FROM hadolint/hadolint:latest-alpine AS hadolint
 
 USER root
-
-RUN rm /engine.json /usr/local/bin/codeclimate-hadolint
 
 ENTRYPOINT ["hadolint"]
 CMD ["--version"]
