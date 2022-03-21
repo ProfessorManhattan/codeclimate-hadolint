@@ -70,6 +70,8 @@
     - [CodeClimate GitLab CI Example](#codeclimate-gitlab-ci-example)
     - [CodeClimate CLI Walkthrough](#codeclimate-cli-walkthrough)
     - [Standalone Integration](#standalone-integration)
+- [Configuring Hadolint](#configuring-hadolint)
+  - [Sample CodeClimate Configuration](#sample-codeclimate-configuration)
   - [Building the Docker Container](#building-the-docker-container)
   - [Building a Slim Container](#building-a-slim-container)
   - [Build Tools](#build-tools)
@@ -197,7 +199,22 @@ include:
 
 That is it! Hadolint will now run anytime you commit code (that matches the parameters laid out in the `remote:` file above). Ideally, for production, you should copy the source code from the `remote:` link above to another location and update the `remote:` link to the file's new location. That way, you do not have to worry about any changes that are made to the `remote:` file by our team.
 
-{{ load:docs/partials/guide.md }}
+<a href="#configuring-hadolint" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Configuring Hadolint
+
+In **[Megabyte Labs](https://megabyte.space)** projects, we store our Hadolint configuration in `.config/hadolint.yml`. To accomodate this custom configuration location, we included the ability to specify the location of the configuration in the `.codeclimate.yml` file. Here is an example of customizing the location of the Hadolint configuration:
+
+### Sample CodeClimate Configuration
+
+```yaml
+---
+engines:
+  hadolint:
+    enabled: true
+    options:
+      config: .config/hadolint.yml
+```
 
 ### Building the Docker Container
 
