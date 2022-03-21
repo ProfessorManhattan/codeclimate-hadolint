@@ -73,7 +73,7 @@
     "node": ">=14.18.0"
   },
   "publishConfig": {
-    "@megabyte:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects/32219763/packages/npm/",
     "access": "public"
   },
   "blueprint": {
@@ -82,10 +82,21 @@
     ],
     "description": "A slim Hadolint standalone linter and a CodeClimate engine for GitLab CI",
     "dockerBaseTag": "hadolint",
+    "dockerLatestSize": {
+      "codeclimate": "9.4M",
+      "hadolint": "9.4M"
+    },
     "dockerSlimCommand": {
       "codeclimate": "--http-probe=false --exec 'cp /work/Dockerfile /code/Dockerfile && echo '{}' > /config.json && codeclimate-hadolint' --mount \"$PWD/test/output-example:/work\" --workdir '/work' --preserve-path-file 'local/paths.txt'",
       "hadolint": "--http-probe=false --exec 'hadolint /work/Dockerfile || true' --mount \"$PWD/test/output-example:/work\" --workdir '/work' --preserve-path-file 'local/paths.txt'"
     },
+    "dockerSlimSize": {
+      "codeclimate": "7.6M",
+      "hadolint": "7.6M"
+    },
+    "github_id": "R_kgDOHCig9w",
+    "gitlab_group_id": "14556970",
+    "gitlab_project_id": "32219763",
     "group": "docker",
     "name": "Hadolint",
     "overview": "This project is the home of a **[Hadolint](https://github.com/hadolint/hadolint)** [CodeClimate](https://codeclimate.com/) engine. It was built to integrate Hadolint results into the GitLab merge request web UI. This project also builds a slim, standalone Hadolint linter which can be used in conjunction with the CodeClimate engine or in places where CodeClimate engine results are not required.",
@@ -96,18 +107,7 @@
     "slug": "hadolint",
     "subgroup": "codeclimate",
     "title": "Hadolint CodeClimate Engine",
-    "versionCommand": "docker run -it megabytelabs/hadolint:latest --version | sed 's/.* v//' | sed 's/-.*//'",
-    "github_id": "R_kgDOHCig9w",
-    "gitlab_project_id": "32219763",
-    "gitlab_group_id": "14556970",
-    "dockerSlimSize": {
-      "codeclimate": "7.6M",
-      "hadolint": "7.6M"
-    },
-    "dockerLatestSize": {
-      "codeclimate": "9.4M",
-      "hadolint": "9.4M"
-    }
+    "versionCommand": "docker run -it megabytelabs/hadolint:latest --version | sed 's/.* v//' | sed 's/-.*//'"
   },
   "changelog": {
     "displayTypes": [
@@ -120,7 +120,9 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [],
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "engine": "node >= 0.12.4",
