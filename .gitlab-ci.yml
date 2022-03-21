@@ -24,10 +24,10 @@ include:
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/update/project.gitlab-ci.yml
 integration:standalone:
   image:
-    name: megabytelabs/ansible-lint:slim
+    name: megabytelabs/hadolint:slim
     entrypoint: ['']
   script:
-    - ansible-lint -c .config/ansible-lint.yml .
+    - hadolint --version
 integration:codeclimate:
   image: megabytelabs/codeclimate:slim
   script:
